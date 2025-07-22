@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Книжный магазин | Главная</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <h1>Книжный магазин</h1>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="active">Главная</a></li>
+                        <li><a href="#" id="books-link">Книги</a></li>
+                        <li><a href="#" id="rentals-link">Мои аренды</a></li>
+                        <li><a href="#" id="admin-link">Админ-панель</a></li>
+                    </ul>
+                </nav>
+                <div class="user-actions">
+                    <button id="login-btn">Вход</button>
+                    <button id="register-btn">Регистрация</button>
+                    <div id="user-profile" class="hidden">
+                        <span id="username-display"></span>
+                        <button id="logout-btn">Выйти</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="modal hidden" id="auth-modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modal-title">Вход</h2>
+                <form id="auth-form">
+                    <div id="name-field" class="hidden">
+                        <label for="name">Имя:</label>
+                        <input type="text" id="name" name="name" />
+                    </div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required />
+                    <label for="password">Пароль:</label>
+                    <input type="password" id="password" name="password" required autocomplete="current-password" />
+                    <button type="submit" id="auth-submit">Войти</button>
+                </form>
+                <p id="auth-switch">Нужно зарегистрироваться?</p>
+            </div>
+        </div>
+
+        <div class="modal hidden" id="book-modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="book-modal-title">Информация о книге</h2>
+                <div id="book-modal-content"></div>
+                <div id="book-actions" class="hidden">
+                    <h3>Доступные действия:</h3>
+                    <div class="rent-options">
+                        <button class="rent-btn" data-duration="14">Арендовать на 2 недели</button>
+                        <button class="rent-btn" data-duration="30">Арендовать на 1 месяц</button>
+                        <button class="rent-btn" data-duration="90">Арендовать на 3 месяца</button>
+                    </div>
+                    <button id="buy-btn">Купить</button>
+                </div>
+            </div>
+        </div>
+
+        <main class="container">
+            <section id="home-section">
+                <h2>Добро пожаловать в наш книжный магазин!</h2>
+                <p>Откройте для себя мир увлекательных книг и наслаждайтесь чтением.</p>
+                <div class="featured-books">
+                    <h3>Рекомендуемые книги</h3>
+                    <div class="books-grid" id="featured-books"></div>
+                </div>
+            </section>
+
+            <section id="books-section" class="hidden">
+                <div class="filters">
+                    <select id="category-filter">
+                        <option value="">Все категории</option>
+                    </select>
+                    <select id="author-filter">
+                        <option value="">Все авторы</option>
+                    </select>
+                    <select id="year-filter">
+                        <option value="">Все годы</option>
+                    </select>
+                    <select id="sort-by">
+                        <option value="title">По названию</option>
+                        <option value="author">По автору</option>
+                        <option value="year">По году издания</option>
+                        <option value="price">По цене</option>
+                    </select>
+                    <button id="apply-filters">Применить</button>
+                </div>
+                <div class="books-grid" id="all-books"></div>
+            </section>
+
+            <section id="rentals-section" class="hidden">
+                <h2>Мои аренды</h2>
+                <div id="user-rentals"></div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2023 Книжный магазин. Все права защищены.</p>
+            </div>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>

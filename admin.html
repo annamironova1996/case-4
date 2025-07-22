@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Книжный магазин | Админ-панель</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Админ-панель</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Вернуться в магазин</a></li>
+                    <li><a href="#" class="active" id="admin-books-link">Книги</a></li>
+                    <li><a href="#" id="admin-users-link">Пользователи</a></li>
+                    <li><a href="#" id="admin-rentals-link">Аренды</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <button id="admin-logout-btn">Выйти</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="modal hidden" id="admin-book-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="admin-book-modal-title">Редактирование книги</h2>
+            <form id="admin-book-form">
+                <input type="hidden" id="book-id">
+                <label for="book-title">Название:</label>
+                <input type="text" id="book-title" required>
+                
+                <label for="book-author">Автор:</label>
+                <input type="text" id="book-author" required>
+                
+                <label for="book-year">Год издания:</label>
+                <input type="number" id="book-year" required>
+                
+                <label for="book-category">Категория:</label>
+                <input type="text" id="book-category" required>
+                
+                <label for="book-price">Цена:</label>
+                <input type="number" id="book-price" step="0.01" required>
+                
+                <label for="book-rent-price">Цена аренды (в день):</label>
+                <input type="number" id="book-rent-price" step="0.01" required>
+                
+                <label for="book-stock">Количество в наличии:</label>
+                <input type="number" id="book-stock" required>
+                
+                <label for="book-image">URL изображения:</label>
+                <input type="text" id="book-image">
+                
+                <label for="book-description">Описание:</label>
+                <textarea id="book-description" rows="4"></textarea>
+                
+                <div class="form-actions">
+                    <button type="submit">Сохранить</button>
+                    <button type="button" id="delete-book-btn">Удалить</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <main class="container">
+        <section id="admin-books-section">
+            <div class="admin-actions">
+                <button id="add-book-btn">Добавить книгу</button>
+                <button id="send-reminders-btn">Отправить напоминания</button>
+            </div>
+            <div class="books-grid" id="admin-books-list"></div>
+        </section>
+
+        <section id="admin-users-section" class="hidden">
+            <h2>Пользователи</h2>
+            <table id="users-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Имя</th>
+                        <th>Email</th>
+                        <th>Роль</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <section id="admin-rentals-section" class="hidden">
+            <h2>Активные аренды</h2>
+            <table id="rentals-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Книга</th>
+                        <th>Пользователь</th>
+                        <th>Начало</th>
+                        <th>Конец</th>
+                        <th>Статус</th>
+                        <th>Действия</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Книжный магазин. Админ-панель.</p>
+        </div>
+    </footer>
+
+    <script src="admin.js"></script>
+</body>
+</html>
